@@ -12,10 +12,10 @@ class MyFrame(Frame):
         super().__init__(master) 
         self.pack(fill="both", expand=True)
         self.config(bg=FRAME_COLOR)
-        self.apps = []
-        
+        self.apps = self.getApp()
 
         self.createWidgets()
+        self.displayApps()
 
 
 
@@ -31,6 +31,23 @@ class MyFrame(Frame):
 
 
 
+    def getApp(self):
+        files = []
+        try:    
+            with open(file = path, mode = "r") as file:
+                files = [file.strip() for file in file.readlines()]
+        except FileNotFoundError:
+            pass
+        finally:    
+            return files
+
+
+
+    def displayApps(self):
+        for app in self.apps:
+            Label(self.canvas, text = app).pack()
+
+
     def addApp(self):
 
         for widget in self.canvas.winfo_children():
@@ -40,15 +57,11 @@ class MyFrame(Frame):
                                             title="Select File",                                        
                                             filetypes=(("executables", "exe"), ("all files", "*.*"))
                                             )
+
         if filename:
-            self.apps.append(filename)
-            print(self.apps)
             with open(file = path, mode = "a") as file:
-                file.write(filename)
-
-        for app in self.apps:
-            Label(self.canvas, text = app).pack()
-
+                file.write(f"{filename}\n")
+        self.displayApps()
 
 
     def runApp(self):
@@ -56,6 +69,8 @@ class MyFrame(Frame):
             os.startfile(app)
             
         
+
+
 
 #Fenster erzeugen           
 root = Tk()
