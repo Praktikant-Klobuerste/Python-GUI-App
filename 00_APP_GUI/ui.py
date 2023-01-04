@@ -11,8 +11,12 @@ class MyFrame(Frame):
         self.createWidgets()
 
     def createWidgets(self): 
+        self.bspButton = Button(self,text="bspButton", bg="#ffdddd")
+        self.bspButton.pack()
+
         
         
+
 #Fenster erzeugen           
 root = Tk()
 root.title("Fenstertitel")
