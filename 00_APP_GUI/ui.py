@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import filedialog, Text
 
 
 class MyFrame(Frame):
@@ -16,6 +17,14 @@ class MyFrame(Frame):
         
         self.bspButton = Button(self,text="bspButton", bg="#ffdddd")
         self.bspButton.pack()
+
+    def addApp(self):
+        filename = filedialog.askopenfilename(initialdir="/", 
+                                            title="Select File",                                        
+                                            filetypes=(("executables", "exe"), ("all files", "*.*"))
+                                            )
+        self.apps.append(filename)
+        print(filename)
 
         
         
