@@ -5,7 +5,7 @@ class MyFrame(Frame):
     def __init__(self, master=None):
         super().__init__(master) 
         self.pack(fill="both", expand=True)
-        self.config(pady = 30, padx=30,bg= "#E1D7C6")
+        self.config(pady = 30, padx=30, bg= "#E1D7C6")
         
 
         self.createWidgets()
@@ -13,22 +13,6 @@ class MyFrame(Frame):
     def createWidgets(self): 
         
         
-        #Beispiel Label
-        self.bspLabel = Label(self,text="Beispiel Label")
-        self.bspLabel.grid(row=0,column=0)
-        # alle Optionen für Label ausgeben
-
-        #Beispiel Button
-        self.bspButton = Button(self,text="bspButton",command=self.eventHandlerButton,bg="#ffdddd")
-        self.bspButton.grid(row=1,column=0)
-        # alle Optionen für Button ausgeben
-
-    
-    # Alle Eventhandler 
-    def eventHandlerButton(self):
-        pass
-
-
 #Fenster erzeugen           
 root = Tk()
 root.title("Fenstertitel")
