@@ -11,6 +11,9 @@ class MyFrame(Frame):
         self.createWidgets()
 
     def createWidgets(self): 
+        self.canvas = Canvas(self, height=450, bg= "#E1D7C6", relief="sunken", highlightthickness=0)
+        self.canvas.pack()
+        
         self.bspButton = Button(self,text="bspButton", bg="#ffdddd")
         self.bspButton.pack()
 
