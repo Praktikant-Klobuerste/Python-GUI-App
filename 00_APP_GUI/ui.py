@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import filedialog, Text
 import os
+from path_file import path
 
 WINDOW_COLOR = "#3C6255"
 FRAME_COLOR = "#E1D7C6"
@@ -42,7 +43,7 @@ class MyFrame(Frame):
         if filename:
             self.apps.append(filename)
             print(self.apps)
-            with open(file = "programms.txt", mode = "a") as file:
+            with open(file = path, mode = "a") as file:
                 file.write(filename)
 
         for app in self.apps:
