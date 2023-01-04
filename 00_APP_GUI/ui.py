@@ -12,7 +12,6 @@ class MyFrame(Frame):
         super().__init__(master) 
         self.pack(fill="both", expand=True)
         self.config(bg=FRAME_COLOR)
-        self.apps = self.getApp()
 
         self.createWidgets()
         self.displayApps()
@@ -44,7 +43,7 @@ class MyFrame(Frame):
 
 
     def displayApps(self):
-        for app in self.apps:
+        for app in self.getApp():
             Label(self.canvas, text = app).pack()
 
 
@@ -65,7 +64,7 @@ class MyFrame(Frame):
 
 
     def runApp(self):
-        for app in self.apps:
+        for app in self.getApp():
             os.startfile(app)
             
         
