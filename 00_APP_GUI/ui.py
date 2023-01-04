@@ -42,6 +42,8 @@ class MyFrame(Frame):
         if filename:
             self.apps.append(filename)
             print(self.apps)
+            with open(file = "programms.txt", mode = "a") as file:
+                file.write(filename)
 
         for app in self.apps:
             Label(self.canvas, text = app).pack()
